@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie & Show Ratings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-200 min-h-screen flex flex-col items-center py-10 mt-10">
+
+    <!-- Title -->
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Your Movie & Show Ratings</h1>
+
+    <!-- Streaming Service Selection -->
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-lg">
+        <h2 class="text-xl font-semibold mb-4">Select Your Streaming Services</h2>
+
+        <div id="streamingServices" class="grid grid-cols-2 gap-2">
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" value="Netflix" class="service-checkbox">
+                <span>Netflix</span>
+            </label>
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" value="Disney+" class="service-checkbox">
+                <span>Disney+</span>
+            </label>
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" value="HBO Max" class="service-checkbox">
+                <span>HBO Max</span>
+            </label>
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" value="Amazon Prime" class="service-checkbox">
+                <span>Amazon Prime</span>
+            </label>
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" value="Hulu" class="service-checkbox">
+                <span>Hulu</span>
+            </label>
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" value="Apple TV+" class="service-checkbox">
+                <span>Apple TV+</span>
+            </label>
+        </div>
+
+        <button onclick="recommendMovie()" class="w-full mt-4 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
+            Recommend Me!
+        </button>
+    </div>
+
+    <!-- Movie Form -->
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-lg mt-6">
+        <h2 class="text-xl font-semibold mb-4">Add a Movie or Show</h2>
+        <input type="text" id="movieInput" placeholder="Enter movie/show name" class="w-full px-4 py-2 border rounded-lg mb-4">
+        
+        <!-- Rating Selector -->
+        <select id="ratingInput" class="w-full px-4 py-2 border rounded-lg mb-4">
+            <option value="1">⭐ - 1 Star</option>
+            <option value="2">⭐⭐ - 2 Stars</option>
+            <option value="3">⭐⭐⭐ - 3 Stars</option>
+            <option value="4">⭐⭐⭐⭐ - 4 Stars</option>
+            <option value="5">⭐⭐⭐⭐⭐ - 5 Stars</option>
+        </select>
+
+        <button onclick="addMovie()" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+            Add Movie/Show
+        </button>
+    </div>
+
+    <!-- Movie List -->
+    <div class="w-full max-w-lg mt-6">
+        <h2 class="text-xl font-semibold mb-4">Your List</h2>
+        <ul id="movieList" class="space-y-3"></ul>
+    </div>
+
+    <script>
+        function addMovie() {
+            const movieInput = document.getElementById("movieInput");
+            const ratingInput = document.getElementById("ratingInput");
+            const movieList = document.getElementById("movieList");
+
+            const movieName = movieInput.value.trim();
+            const rating = ratingInput.value;
+
+            if (movieName === "") {
+                alert("Please enter a movie or show name!");
+                return;
+            }
+
+            // Create movie item
+            const listItem = document.createElement("li");
+            listItem.classList = "bg-white p-4 rounded-lg shadow flex justify-between items-center";
+            
+            listItem.innerHTML = `
+                <span class="text-lg font-medium">${movieName}</span>
+                <span class="text-yellow-500">${"⭐".repeat(rating)}</span>
+                <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700">❌</button>
+            `;
+
+            // Add to list
+            movieList.appendChild(listItem);
+
+            // Clear input fields
+            movieInput.value = "";
+            ratingInput.value = "1";
+        }
+
+        function recommendMovie() {
+            const selectedServices = Array.from(document.querySelectorAll(".service-checkbox:checked"))
+                                        .map(checkbox => checkbox.value);
+                                        
+            if (selectedServices.length === 0) {
+                alert("Please select at least one streaming service!");
+                return;
+            }
+
+            alert("Based on your selections: " + selectedServices.join(", ") + "\nRecommendation feature coming soon!");
+        }
+    </script>
+
+</body>
+</html>
