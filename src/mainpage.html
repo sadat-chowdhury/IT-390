@@ -4,74 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie & Show Ratings</title>
+    <link href="./output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-200 min-h-screen flex flex-col items-center py-10 mt-10">
+<body class="bg-radial from-blue-500 to-purple-600 min-h-screen flex flex-col font-mono">
 
-    <!-- Title -->
-    <h1 class="text-3xl font-bold text-gray-800 mb-6">Your Movie & Show Ratings</h1>
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white p-4 shadow-md rounded-xl max-w-[70%] mx-auto fixed top-4 left-0 right-0 animate-[bounceZoomIn_1.2s_ease-out]">
+        <div class="flex justify-between items-center px-6">
+            <a href="./index.html" class="text-xl font-bold hover:text-blue-400 transition hover:scale-110 transition-transform duration-200">
+                Streamlog
+            </a> 
+            <ul class="flex space-x-6">
+                <li><a href="#" class="inline-block hover:text-blue-400 hover:scale-110 transition-transform duration-200">Profile</a></li>
+                <li><a href="./contact-us.html" class="inline-block hover:text-blue-400 hover:scale-110 transition-transform duration-200">Contact</a></li>
+                <li><a href="./about-us.html" class="inline-block hover:text-blue-400 hover:scale-110 transition-transform duration-200">About Us</a></li>
+            </ul>                       
+        </div>
+    </nav>
 
-    <!-- Streaming Service Selection -->
-    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-lg">
-        <h2 class="text-xl font-semibold mb-4">Select Your Streaming Services</h2>
+    <!-- Main Content Wrapper -->
+    <div class="flex-grow flex flex-col items-center py-10 mt-24 animate-[zoomIn_0.5s_ease-out]">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Your Movie & Show Ratings</h1>
 
-        <div id="streamingServices" class="grid grid-cols-2 gap-2">
-            <label class="flex items-center space-x-2">
-                <input type="checkbox" value="Netflix" class="service-checkbox">
-                <span>Netflix</span>
-            </label>
-            <label class="flex items-center space-x-2">
-                <input type="checkbox" value="Disney+" class="service-checkbox">
-                <span>Disney+</span>
-            </label>
-            <label class="flex items-center space-x-2">
-                <input type="checkbox" value="HBO Max" class="service-checkbox">
-                <span>HBO Max</span>
-            </label>
-            <label class="flex items-center space-x-2">
-                <input type="checkbox" value="Amazon Prime" class="service-checkbox">
-                <span>Amazon Prime</span>
-            </label>
-            <label class="flex items-center space-x-2">
-                <input type="checkbox" value="Hulu" class="service-checkbox">
-                <span>Hulu</span>
-            </label>
-            <label class="flex items-center space-x-2">
-                <input type="checkbox" value="Apple TV+" class="service-checkbox">
-                <span>Apple TV+</span>
-            </label>
+        <!-- Streaming Service Selection -->
+        <div class="bg-white p-6 rounded-3xl shadow-md w-full max-w-lg">
+            <h2 class="text-xl font-semibold mb-4">Select Your Streaming Services</h2>
+
+            <div id="streamingServices" class="grid grid-cols-2 gap-2">
+                <label class="flex items-center space-x-2"><input type="checkbox" value="Netflix" class="service-checkbox"> <span>Netflix</span></label>
+                <label class="flex items-center space-x-2"><input type="checkbox" value="Disney+" class="service-checkbox"> <span>Disney+</span></label>
+                <label class="flex items-center space-x-2"><input type="checkbox" value="HBO Max" class="service-checkbox"> <span>HBO Max</span></label>
+                <label class="flex items-center space-x-2"><input type="checkbox" value="Amazon Prime" class="service-checkbox"> <span>Amazon Prime</span></label>
+                <label class="flex items-center space-x-2"><input type="checkbox" value="Hulu" class="service-checkbox"> <span>Hulu</span></label>
+                <label class="flex items-center space-x-2"><input type="checkbox" value="Apple TV+" class="service-checkbox"> <span>Apple TV+</span></label>
+            </div>
+
+            <button onclick="recommendMovie()" class="w-full mt-4 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Recommend Me!</button>
         </div>
 
-        <button onclick="recommendMovie()" class="w-full mt-4 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
-            Recommend Me!
-        </button>
-    </div>
+        <!-- Movie Form -->
+        <div class="bg-white p-6 rounded-3xl shadow-md w-full max-w-lg mt-6">
+            <h2 class="text-xl font-semibold mb-4">Add a Movie or Show</h2>
+            <input type="text" id="movieInput" placeholder="Enter movie/show name" class="w-full px-4 py-2 border rounded-lg mb-4">
+            
+            <select id="ratingInput" class="w-full px-4 py-2 border rounded-lg mb-4">
+                <option value="1">⭐ - 1 Star</option>
+                <option value="2">⭐⭐ - 2 Stars</option>
+                <option value="3">⭐⭐⭐ - 3 Stars</option>
+                <option value="4">⭐⭐⭐⭐ - 4 Stars</option>
+                <option value="5">⭐⭐⭐⭐⭐ - 5 Stars</option>
+            </select>
 
-    <!-- Movie Form -->
-    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-lg mt-6">
-        <h2 class="text-xl font-semibold mb-4">Add a Movie or Show</h2>
-        <input type="text" id="movieInput" placeholder="Enter movie/show name" class="w-full px-4 py-2 border rounded-lg mb-4">
-        
-        <!-- Rating Selector -->
-        <select id="ratingInput" class="w-full px-4 py-2 border rounded-lg mb-4">
-            <option value="1">⭐ - 1 Star</option>
-            <option value="2">⭐⭐ - 2 Stars</option>
-            <option value="3">⭐⭐⭐ - 3 Stars</option>
-            <option value="4">⭐⭐⭐⭐ - 4 Stars</option>
-            <option value="5">⭐⭐⭐⭐⭐ - 5 Stars</option>
-        </select>
+            <button onclick="addMovie()" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Add Movie/Show</button>
+        </div>
 
-        <button onclick="addMovie()" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
-            Add Movie/Show
-        </button>
-    </div>
+        <!-- Movie List -->
+        <div class="bg-white p-6 rounded-3xl shadow-md w-full max-w-lg mt-6">
+            <h2 class="text-xl font-semibold mb-4">Your List</h2>
+            <div class="max-h-64 overflow-y-auto">
+                <ul id="movieList" class="space-y-3"></ul>
+            </div>
+        </div>
+    </div> <!-- Closes Main Content Wrapper -->
 
-    <!-- Movie List -->
-    <div class="w-full max-w-lg mt-6">
-        <h2 class="text-xl font-semibold mb-4">Your List</h2>
-        <ul id="movieList" class="space-y-3"></ul>
-    </div>
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white text-center p-4 w-full">
+        <div class="max-w-[70%] mx-auto">
+            <p class="text-sm"> IT-390 | Sadat, An, Andrew, & Anthony</p>
+            <p class="text-sm">Streamlog</p>
+        </div>
+    </footer>    
 
     <script>
         function addMovie() {
@@ -87,7 +91,6 @@
                 return;
             }
 
-            // Create movie item
             const listItem = document.createElement("li");
             listItem.classList = "bg-white p-4 rounded-lg shadow flex justify-between items-center";
             
@@ -97,10 +100,7 @@
                 <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700">❌</button>
             `;
 
-            // Add to list
             movieList.appendChild(listItem);
-
-            // Clear input fields
             movieInput.value = "";
             ratingInput.value = "1";
         }

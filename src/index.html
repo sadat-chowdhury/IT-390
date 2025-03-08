@@ -5,41 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-200">
-    
-    <div class="w-full max-w-md bg-white p-8 rounded-xl shadow-md text-center">
-        <h1 class="text-3xl font-extrabold text-gray-800 mb-2">Welcome to Streamlog!</h1>
-        <p class="text-gray-600 mb-6">Sign in to continue</p>
+<body class="flex flex-col items-center justify-center min-h-screen flex flex-col bg-gradient-to-t from-blue-500 to-purple-600 font-mono">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white p-4 shadow-md rounded-xl max-w-[70%] mx-auto fixed top-4 left-0 right-0 animate-[bounceZoomIn_1.2s_ease-out]">
+        <div class="flex justify-between items-center px-6">
+            <a href="./index.html" class="text-xl font-bold hover:text-blue-400 transition hover:scale-110 transition-transform duration-200">
+                Streamlog
+            </a>            
+            <ul class="flex space-x-6">
+                <li><a href="#" class="inline-block hover:text-blue-400 hover:scale-110 transition-transform duration-200">Profile</a></li>
+                <li><a href="./contact-us.html" class="inline-block hover:text-blue-400 hover:scale-110 transition-transform duration-200">Contact</a></li>
+                <li><a href="./about-us.html" class="inline-block hover:text-blue-400 hover:scale-110 transition-transform duration-200">About Us</a></li>
+            </ul>                       
+        </div>
+    </nav>
+
+    <!-- div with the login and the try for free btn -->
+    <div class="flex items-center space-x-6 mt-24 flex-grow">
         
-        <h2 class="text-2xl font-semibold text-gray-700 mb-6">Login</h2>
-        
-        <!-- This is the form to input email, pass-->
+        <!-- Login Form -->
+        <div class="w-full max-w-md bg-gray-200 p-8 rounded-3xl shadow-md text-center transform scale-90 opacity-0 transition-all duration-500 ease-out animate-[zoomIn_0.5s_ease-out_forwards]">
+            <h1 class="text-3xl font-extrabold text-gray-800 mb-2">Welcome to Streamlog!</h1>
+            <p class="text-gray-600 mb-6">Sign in to continue</p>
+            
+            <h2 class="text-2xl font-semibold text-gray-700 mb-6">Login</h2>
 
-        <form action="" method="POST"> <!-- using post to send credential to server -->
-            <div class="mb-4 text-left">
-                <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 focus:border-blue-500" placeholder="Enter your email" required>
-            </div>
+            <form action="" method="POST">
+                <div class="mb-4 text-left">
+                    <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
+                    <input type="email" id="email" class="w-full px-4 py-2 border-2 border-black rounded-lg focus:ring focus:ring-blue-300 focus:border-blue-500" placeholder="Enter your email" required>
+                </div>
 
-            <div class="mb-4 text-left">
-                <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-                <input type="password" id="password" class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 focus:border-blue-500" placeholder="Enter your password" required>
-            </div>
+                <div class="mb-4 text-left">
+                    <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border-2 border-black rounded-lg focus:ring focus:ring-blue-300 focus:border-blue-500" placeholder="Enter your password" required>
+                </div>
 
-            <!-- the forget password button -->
-            <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
-                <a href="" class="text-blue-500 hover:underline">Forgot password?</a>
-            </div>
+                <div class="flex justify-between items-center text-sm text-gray-600 mb-4">
+                    <a href="#" class="text-blue-500 hover:underline">Forgot password?</a>
+                </div>
 
-            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Login</button>
-        </form>
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Login</button>
+            </form>
+            
+            <p class="text-sm text-gray-600 mt-4">
+                Don't have an account? <a href="#" class="text-blue-500 hover:underline">Sign up</a>
+            </p>
+        </div>
 
-        <!-- this is the sign up link -->
-        <p class="text-sm text-gray-600 mt-4">
-            Don't have an account? <a href="#" class="text-blue-500 hover:underline">Sign up</a>
-        </p>
+        <!-- "Try Us for Free!" Button -->
+        <a href="./mainpage.html" class="bg-green-500 text-white py-3 px-6 rounded-3xl shadow-lg hover:bg-green-600 transition text-lg font-semibold text-center transform scale-90 opacity-0 transition-all duration-500 ease-out animate-[zoomIn_0.5s_ease-out_forwards]">
+            Try Us for Free!
+        </a>
     </div>
 
+    <footer class="bg-gray-900 text-white text-center p-4 w-full">
+        <div class="max-w-[70%] mx-auto">
+            <p class="text-sm"> IT-390 | Sadat, An, Andrew, & Anthony</p>
+            <p class="text-sm">Streamlog</p>
+        </div>
+    </footer> 
 </body>
 </html>

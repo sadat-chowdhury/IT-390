@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Streamlog</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-t from-blue-500 to-purple-600 min-h-screen flex flex-col font-mono">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white p-4 shadow-md rounded-xl max-w-[70%] mx-auto fixed top-4 left-0 right-0 animate-[bounceZoomIn_1.2s_ease-out]">
+        <div class="flex justify-between items-center px-6">
+            <a href="./index.html" class="text-xl font-bold hover:text-blue-400 transition hover:scale-110 transition-transform duration-200">
+                Streamlog
+            </a> 
+            <ul class="flex space-x-6">
+                <li><a href="#" class="inline-block hover:text-blue-400 hover:scale-110 transition-transform duration-200">Profile</a></li>
+                <li><a href="./contact-us.html" class="inline-block hover:text-blue-400 hover:scale-110 transition-transform duration-200">Contact</a></li>
+                <li><a href="./about-us.html" class="inline-block hover:text-blue-400 hover:scale-110 transition-transform duration-200">About Us</a></li>
+            </ul>                       
+        </div>
+    </nav>
+
+    <!-- About Us Section -->
+    <div class="flex-grow flex items-center justify-center mt-24 px-10">
+        <div class="bg-white p-8 rounded-3xl shadow-lg max-w-4xl flex items-center space-x-8">
+            <!-- Left Side: Image -->
+            <img id="flipImage" src="../images/streamlog_logo_crpd.png" alt="Our Team" class="w-1/3 rounded-lg shadow-md transition-transform duration-700">
+            
+            <!-- Right Side: Text -->
+            <div class="w-2/3">
+                <h1 class="text-3xl font-bold text-gray-800 mb-4">About Streamlog</h1>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Streamlog is your go-to platform for tracking and rating movies and shows from all the most popular streaming services.
+                    Our goal is to deliver a service with seamless experience for users to log their favorite content and discover new recommendations.
+                </p>
+                <p class="text-gray-600 text-lg leading-relaxed mt-4">
+                    The idea came from Andrew, our product owner, to create a web app that allows users to get recommendations based on their
+                    most loved shows, and movies from different streaming platforms.
+                </p>
+                <p class="text-gray-600 text-lg leading-relaxed mt-4">
+                    Our team consists of 4 individuals in their last year of their undergraduate studies. Each member has been exposed to many web application
+                    development technologies. Database, Cloud, Software & Web Programming to name a few.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white text-center p-4 w-full mt-auto">
+        <div class="max-w-[70%] mx-auto">
+            <p class="text-sm"> IT-390 | Sadat, An, Andrew, & Anthony</p>
+            <p class="text-sm">Streamlog</p>
+        </div>
+    </footer>    
+
+    <script src="./scripts/scripts.js"></script>
+
+</body>
+</html>
